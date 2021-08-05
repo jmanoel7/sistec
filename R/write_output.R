@@ -217,7 +217,7 @@ write_tables <- function(x, path, rfept_table) {
   tables[[paste0(rfept_table, " sem Sistec")]] <- x$rfept_without_sistec
   tables[[paste0(rfept_table, " com CPF Repetidos")]] <- x$rfept_wrong_cpf
   tables[[paste0(rfept_table, " com Entrada Repetida")]] <- x$rfept_duplicated_registry
-  tables[[paste0(rfept_table, " Entrada n\u00e3o Encontrada")]] <- x$rfept_unlinked_entry
+  tables[[paste0(rfept_table, " Ent. n\u00e3o Encontrada")]] <- x$rfept_unlinked_entry
   tables[[paste0(rfept_table, " Inspe\u00e7\u00e3o Manual")]] <- x$rfept_pending
 
   tables[["Data de In\u00edcio Errada"]] <- x$rfept_wrong_beginning
