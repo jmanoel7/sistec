@@ -210,14 +210,14 @@ write_tables <- function(x, path, rfept_table) {
   tables[[paste0("Sistec sem ", rfept_table)]] <- x$sistec_without_rfept
   tables[["Sistec com CPF Repetidos"]] <- x$sistec_wrong_cpf
   tables[["Sistec com Entrada Repetida"]] <- x$sistec_duplicated_registry
-  tables[["Sistec com entrada n\u00e3o encontrada"]] <- x$sistec_unlinked_entry
+  tables[["Sistec Entrada n\u00e3o Encontrada"]] <- x$sistec_unlinked_entry
   tables[["Sistec Inspe\u00e7\u00e3o Manual"]] <- x$sistec_pending
 
   tables[[paste0(rfept_table, " sem CPF")]] <- x$rfept_without_cpf
   tables[[paste0(rfept_table, " sem Sistec")]] <- x$rfept_without_sistec
   tables[[paste0(rfept_table, " com CPF Repetidos")]] <- x$rfept_wrong_cpf
   tables[[paste0(rfept_table, " com Entrada Repetida")]] <- x$rfept_duplicated_registry
-  tables[[paste0(rfept_table, " com entrada n\u00e3o encontrada")]] <- x$rfept_unlinked_entry
+  tables[[paste0(rfept_table, " Entrada n\u00e3o Encontrada")]] <- x$rfept_unlinked_entry
   tables[[paste0(rfept_table, " Inspe\u00e7\u00e3o Manual")]] <- x$rfept_pending
 
   tables[["Data de In\u00edcio Errada"]] <- x$rfept_wrong_beginning
