@@ -16,6 +16,7 @@ RUN sh -c "R -e \"install.packages(c('shiny', 'dplyr', 'openxlsx', 'rlang', 'str
 
 RUN mkdir -p /srv/shiny-server && \
     cd /srv/shiny-server && \
+    rm -rf sistec && \
     git clone https://github.com/jmanoel7/sistec.git && \
     R CMD build sistec && \
     R CMD INSTALL ./sistec_0.2.0.9012.tar.gz && \
