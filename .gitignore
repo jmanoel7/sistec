@@ -5,6 +5,3 @@
 situação.xlsx
 test_datasets/
 *.ipynb
-__pycache__/
-.venv/
-py/
