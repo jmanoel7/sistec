@@ -36,7 +36,7 @@ read_qacademico <- function(path = "", start = NULL) {
   temp <- paste0(path, "/", temp) %>% sort(decreasing = TRUE)
 
   qacademico <- utils::read.csv(temp[1],
-    sep = "", stringsAsFactors = FALSE,
+    sep = ",", stringsAsFactors = FALSE,
     encoding = "latin1", nrows = 1, check.names = FALSE
   )
 
@@ -66,7 +66,7 @@ read_qacademico_web <- function(path) {
   classes <- "character"
 
   qacademico <- lapply(temp, utils::read.csv,
-    sep = "", stringsAsFactors = FALSE, colClasses = classes,
+    sep = ",", stringsAsFactors = FALSE, colClasses = classes,
     encoding = "latin1", check.names = FALSE
   ) %>%
     dplyr::bind_rows() %>%
