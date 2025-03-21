@@ -1,5 +1,5 @@
-ARG BASE_TAG="noble"
-ARG BASE_IMAGE="ubuntu"
+ARG BASE_TAG="bookworm"
+ARG BASE_IMAGE="debian"
 FROM $BASE_IMAGE:$BASE_TAG
 
 USER root
