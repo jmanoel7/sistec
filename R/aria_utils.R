@@ -73,7 +73,7 @@ create_zipped_file <- function(file, aria_values) {
   if_windows <- tolower(Sys.getenv("SystemRoot"))
   if (grepl("windows", if_windows)) {
     shell(paste0(
-      "cd ", aria_values$session_id, "&& zip -r ",
+      "cd ", aria_values$session_id, "&& 7z a ",
       file, " ARIA"
     ))
   } else {
