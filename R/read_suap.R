@@ -13,8 +13,8 @@
 #'
 #'  - "Modulo Ensino" -> "Relatorio" -> "Listagem de Alunos";
 #'  - In "Filtros de Pesquisa":
-#'     -  Select the campus;
-#'     -  Select the "Ano de Ingresso a Partir de:";
+#'     -  Select the "Campus";
+#'     -  Select the "Ano de Ingresso a Partir de";
 #'     -  In "exibicao" mark the options: Campus, CPF, Data de Matricula, Descricao do Curso, Forma de Ingresso and Situacao no Curso;
 #'     -  Cliqk on "pesquisar".
 #'

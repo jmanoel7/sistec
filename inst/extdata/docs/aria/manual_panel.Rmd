@@ -89,8 +89,8 @@ Para os dados do Suap utilize os seguintes passos:
 
 - Módulo Ensino -> Relatório -> Listagem de Alunos;
 - Utilizando os Filtros de Pesquisa:
-    -  Selecione o campus
-    -  Selecione o "Ano de Ingresso a Partir de:"
+    -  Selecione o "Campus"
+    -  Selecione o "Ano de Ingresso a Partir de"
     -  Em exibição marque as opções: Campus, CPF, Data de Matrícula, Descrição do Curso, Forma de Ingresso e Situação no Curso; 
     -  Clique em pesquisar.
     
