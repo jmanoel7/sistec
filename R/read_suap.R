@@ -29,7 +29,7 @@ read_suap <- function(path = "", start = NULL) {
 
   suap <- utils::read.csv(temp[1],
     sep = "\t", stringsAsFactors = FALSE, encoding = "latin1",
-    skip = 1, nrows = 1, check.names = FALSE
+    nrows = 1, check.names = FALSE
   )
 
   vars <- c(
