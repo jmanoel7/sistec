@@ -32,7 +32,7 @@ and restart your R session:
 
 ``` r
 install.packages("devtools")
-devtools::install_github("r-ifpe/sistec")
+devtools::install_github("jmanoel7/sistec")
 ```
 
 Load the package.
