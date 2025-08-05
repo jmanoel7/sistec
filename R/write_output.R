@@ -205,9 +205,9 @@ write_tables <- function(x, path, rfept_table) {
     }
   })
 
-  # if (rfept_table == 'Q-Academico') {
-  #   rfept_table <- "Q-Acad"
-  # }
+  if (rfept_table == 'Qacademico') {
+    rfept_table <- "Qacad"
+  }
 
   tables <- list()
   tables[["Sistec sem CPF"]] <- x$sistec_without_cpf
