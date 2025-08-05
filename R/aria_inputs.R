@@ -35,7 +35,7 @@ input_years <- function(id) {
 
   shiny::selectInput(NS(id, "year"), "Comparar a partir de:",
     choices = years$PERIOD,
-    selected = "2024.1"
+    selected = "2025.1"
   )
 }
 
