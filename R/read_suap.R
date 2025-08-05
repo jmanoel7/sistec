@@ -14,7 +14,8 @@
 #'  - "Modulo Ensino" -> "Relatorio" -> "Listagem de Alunos";
 #'  - In "Filtros de Pesquisa":
 #'     -  Select the campus;
-#'     -  In "exibicao" mark the options: Ano de Ingresso, CPF,Data de Matricula, Descricao do Curso, Forma de Ingresso and Situacao no Curso;
+#'     -  Select the "Ano de Ingresso a Partir de:";
+#'     -  In "exibicao" mark the options: Campus, CPF, Data de Matricula, Descricao do Curso, Forma de Ingresso and Situacao no Curso;
 #'     -  Cliqk on "pesquisar".
 #'
 #'   Save your file in CSV format.
