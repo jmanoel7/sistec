@@ -62,7 +62,7 @@ read_sistec <- function(path = "", start = NULL) {
   sep <- detect_sep(temp[1])
 
   vars_sistec <- names(utils::read.csv(temp[1],
-    sep = sep, check.names = FALSE, header = TRUE, encoding = "latin1"
+    sep = sep, check.names = FALSE, header = TRUE, encoding = "ISO-8859-1") {
   ))
 
   num_vars_setec <- sum(vars_sistec %in% vars_setec)
@@ -166,7 +166,7 @@ read_sistec_web_without_unidade_ensino <- function(path, encoding, sep) {
 }
 
 #' @importFrom dplyr %>% sym
-read_sistec_setec <- function(path, encoding = "latin1") {
+read_sistec_setec <- function(path, encoding = "ISO-8859-1") {
   temp <- list.files(path = path, pattern = "*.csv")
   temp <- paste0(path, "/", temp)
 
