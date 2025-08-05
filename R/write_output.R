@@ -122,8 +122,8 @@ write_sistec <- function(x, path, rfept_table) {
   invisible(
     lapply(1:nrow(x), function(e) {
       path_to_save <- paste0(path, "/Retificar no Sistec/",
-        iconv(x$CAMPUS[e], from="ISO-8859-1", to="UTF-8"), "/",
-        iconv(x$CURSO[e], from="ISO-8859-1", to="UTF-8")
+        iconv(x$CAMPUS[e], from="UTF-8", to="latin1"), "/",
+        iconv(x$CURSO[e], from="UTF-8", to="latin1")
       )
       dir.create(path_to_save, recursive = TRUE)
       sistec <- list()
@@ -147,8 +147,8 @@ write_rfept <- function(x, path, rfept_table) {
     lapply(1:nrow(x), function(e) {
       path_to_save <- paste0(
         path, "/Retificar no ", rfept_table, "/",
-        iconv(x$CAMPUS[e], from="ISO-8859-1", to="UTF-8"), "/",
-        iconv(x$CURSO[e], from="ISO-8859-1", to="UTF-8")
+        iconv(x$CAMPUS[e], from="UTF-8", to="latin1"), "/",
+        iconv(x$CURSO[e], from="UTF-8", to="latin1")
       )
       dir.create(path_to_save, recursive = TRUE)
       rfept <- list()
@@ -176,9 +176,9 @@ write_cpf_registration <- function(x, path) {
     lapply(1:nrow(x), function(e) {
       path_to_save <- paste0(
         path, "/Cadastrar Alunos/",
-        iconv(x$CAMPUS[e], from="ISO-8859-1", to="UTF-8"), "/",
-        iconv(x$CURSO[e], from="ISO-8859-1", to="UTF-8"), "/",
-        iconv(x$CICLO[e], from="ISO-8859-1", to="UTF-8")
+        iconv(x$CAMPUS[e], from="UTF-8", to="latin1"), "/",
+        iconv(x$CURSO[e], from="UTF-8", to="latin1"), "/",
+        iconv(x$CICLO[e], from="UTF-8", to="latin1")
       )
 
       dir.create(path_to_save, recursive = TRUE)

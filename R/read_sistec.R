@@ -166,7 +166,7 @@ read_sistec_web_without_unidade_ensino <- function(path, encoding, sep) {
 }
 
 #' @importFrom dplyr %>% sym
-read_sistec_setec <- function(path, encoding = "ISO-8859-1") {
+read_sistec_setec <- function(path, encoding = "latin1") {
   temp <- list.files(path = path, pattern = "*.csv")
   temp <- paste0(path, "/", temp)
 
