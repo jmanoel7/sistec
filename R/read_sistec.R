@@ -62,8 +62,8 @@ read_sistec <- function(path = "", start = NULL) {
   sep <- detect_sep(temp[1])
 
   vars_sistec <- names(utils::read.csv(temp[1],
-    sep = sep, check.names = FALSE, header = TRUE, encoding = "ISO-8859-1") {
-  ))
+    sep = sep, check.names = FALSE, header = TRUE, encoding = "ISO-8859-1")
+  )
 
   num_vars_setec <- sum(vars_sistec %in% vars_setec)
   num_vars_web <- sum(vars_sistec %in% vars_web)
