@@ -68,21 +68,17 @@ filter_rfept_date <- function(x, start){
 }
 
 identify_suap <- function(file){
-  # suap files skips the first line
-  print("Identifying Suap file...")
-  print(stringr::str_detect(readLines(file, n = 1), "Situa..o no Curso"))
-  # the first line of suap files has "Situa..o no Curso"
   stringr::str_detect(readLines(file, n = 1), "Situa..o no Curso")
 }
 
-identify_qacademico <- function(file){
+identify_qacademico <- function(file) {
   stringr::str_detect(readLines(file, n = 1), "Per. Letivo Inicial")
 }
 
-identify_sigaa <- function(file){
+identify_sigaa <- function(file) {
   stringr::str_detect(readLines(file, n = 1), "semestre_ingresso")
 }
 
-identify_conecta <- function(file){
+identify_conecta <- function(file) {
   stringr::str_detect(readLines(file, n = 1), "Cota Chamado")
 }
