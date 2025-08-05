@@ -8,7 +8,7 @@ Authors@R: c(
     person("Cássio", "Santos", email = "cassiosantos@recife.ifpe.edu.br", role = "aut"),
     person("Clécio", "Santos", email = "cleciogsantos@vitoria.ifpe.edu.br", role = "aut"),
     person("Tiago", "Spiandorello", email = "tiago.spiandorello@ifsc.edu.br", role = "ctb"),
-    person("João", "Nogueira", email = "joao.nogueira@ifg.edu.br", role = "aut"),
+    person("João", "Nogueira", email = "joao.nogueira@ifg.edu.br", role = "aut")
     )
 Maintainer: João Nogueira <joao.nogueira@ifg.edu.br>
 Description: The Brazilian system for diploma registration and validation on technical and superior
