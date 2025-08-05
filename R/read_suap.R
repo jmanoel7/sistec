@@ -28,16 +28,17 @@ read_suap <- function(path = "", start = NULL) {
   temp <- paste0(path, "/", temp) %>% sort(decreasing = TRUE)
 
   suap <- utils::read.csv(temp[1],
-    sep = "\t", stringsAsFactors = FALSE, encoding = "latin1",
+    sep = ";", stringsAsFactors = FALSE, encoding = "UTF-8",
     nrows = 1, check.names = FALSE
   )
 
   vars <- c(
-    "Matr\u00edcula", "Nome", "Campus", "Data de Matr\u00edcula",
-    "Descri\u00e7\u00e3o do Curso", "Situa\u00e7\u00e3o no Curso", "CPF"
+    "Matr\u00edcula", "Nome", "Campus", "CPF", "Data de Matr\u00edcula",
+    "Descri\u00e7\u00e3o do Curso","Forma de Ingresso",
+    "Situa\u00e7\u00e3o no Curso"
   )
 
-  if (sum(names(suap) %in% vars) == 7) {
+  if (sum(names(suap) %in% vars) == 8) {
     suap <- read_suap_web(path)
   } else {
     stop(paste(
@@ -57,8 +58,8 @@ read_suap_web <- function(path) {
   classes <- "character"
 
   suap <- lapply(temp, utils::read.csv,
-    skip = 1, sep = "\t", stringsAsFactors = FALSE, colClasses = classes,
-    encoding = "latin1", check.names = FALSE
+    sep = ";", stringsAsFactors = FALSE, colClasses = classes,
+    encoding = "UTF-8", check.names = FALSE
   ) %>%
     dplyr::bind_rows() %>%
     dplyr::distinct(!!sym("Matr\u00edcula"), .keep_all = TRUE) %>% # Take the most recent
