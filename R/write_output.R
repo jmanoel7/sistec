@@ -180,7 +180,8 @@ write_cpf_registration <- function(x, path) {
         x$CURSO[e], "/",
         x$CICLO[e]
       )
-      print("Saving to: ", path_to_save)
+      print("EU AQUI!!!")
+      print(path_to_save)
       dir.create(path_to_save, recursive = TRUE)
 
       quotas_table <- dplyr::arrange(x$quota[e][[1]], !!sym("COTA"))
