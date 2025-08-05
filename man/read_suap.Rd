@@ -26,8 +26,9 @@ For Suap datasets follow these steps:
 \item "Modulo Ensino" -> "Relatorio" -> "Listagem de Alunos";
 \item In "Filtros de Pesquisa":
 \itemize{
-\item Select the campus;
-\item In "exibicao" mark the options: Ano de Ingresso, CPF,Data de Matricula, Descricao do Curso, Forma de Ingresso and Situacao no Curso;
+\item Select the "Campus";
+\item Select the "Ano de Ingresso a Partir de";
+\item In "exibicao" mark the options: Campus, CPF, Data de Matricula, Descricao do Curso, Forma de Ingresso and Situacao no Curso;
 \item Cliqk on "pesquisar".
 }
 }

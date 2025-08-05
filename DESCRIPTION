@@ -7,17 +7,18 @@ Authors@R: c(
     person("Carlos", "Patrício", email = "carlos.patricio@vitoria.ifpe.edu.br", role = "aut"),
     person("Cássio", "Santos", email = "cassiosantos@recife.ifpe.edu.br", role = "aut"),
     person("Clécio", "Santos", email = "cleciogsantos@vitoria.ifpe.edu.br", role = "aut"),
-    person("Tiago", "Spiandorello", email = "tiago.spiandorello@ifsc.edu.br", role = "ctb")
+    person("Tiago", "Spiandorello", email = "tiago.spiandorello@ifsc.edu.br", role = "ctb"),
+    person("João", "Nogueira", email = "joao.nogueira@ifg.edu.br", role = "aut"),
     )
-Maintainer: Samuel Macêdo <samuelmacedo@recife.ifpe.edu.br>
+Maintainer: João Nogueira <joao.nogueira@ifg.edu.br>
 Description: The Brazilian system for diploma registration and validation on technical and superior
     courses are managing by 'Sistec' platform, see <https://sistec.mec.gov.br/>. This package provides 
     tools for Brazilian institutions to update the student's registration and make data analysis 
     about their situation, retention and drop out.
 License: GPL (>= 2)
 LazyData: true
-URL: https://github.com/r-ifpe/sistec
-BugReports: https://github.com/r-ifpe/sistec/issues
+URL: https://github.com/jmanoel7/sistec
+BugReports: https://github.com/jmanoel7/sistec/issues
 Depends:
     R (>= 3.6)
 Imports: 
