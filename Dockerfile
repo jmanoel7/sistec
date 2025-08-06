@@ -1,31 +1,24 @@
-ARG BASE_TAG="bookworm"
-ARG BASE_IMAGE="debian"
-FROM $BASE_IMAGE:$BASE_TAG
+# Use a base image with R and Shiny
+FROM rocker/shiny:latest
 
-USER root
-ENV HOME=/root
-WORKDIR $HOME
+# Install system dependencies
+RUN apt-get update && apt-get install -y p7zip-full
 
-RUN rm -rf sistec
+# Install R dependencies
+RUN R -e "install.packages(c('shiny', 'dplyr', 'openxlsx', 'rlang', 'stringi', 'stringr'))"
 
-RUN DEBIAN_FRONTEND=noninteractive \
-    apt-get update && \
-    apt-get install r-base r-base-core r-base-dev r-base-html r-recommended shiny-server git build-essential bash sed nano procps -y
+# Create a directory for your app
+WORKDIR /app
 
-RUN sh -c "R -e \"install.packages(c('shiny', 'dplyr', 'openxlsx', 'rlang', 'stringi', 'stringr'), repos='https://cran.rstudio.com/')\""
+# Copy your app files
+COPY ./app.R /app
+COPY ./sistec_0.2.0.9012.tar.gz /app/
 
-RUN mkdir -p /srv/shiny-server && \
-    cd /srv/shiny-server && \
-    rm -rf sistec && \
-    git clone https://github.com/jmanoel7/sistec.git && \
-    R CMD build sistec && \
-    R CMD INSTALL ./sistec_0.2.0.9012.tar.gz && \
-    rm -rf index.html && \
-    rm -rf sample-apps
+# Install your R package
+RUN R CMD INSTALL /app/sistec_0.2.0.9012.tar.gz && rm /app/sistec_0.2.0.9012.tar.gz
 
-RUN sed '/run_as shiny\;/a preserve_logs true\;' -i /etc/shiny-server/shiny-server.conf && \
-    cd /var/log/shiny-server
+# Expose the port Shiny listens on (default is 3838)
+EXPOSE 3838
 
-#CMD ["/usr/lib/shiny-server/ext/node/bin/shiny-server /usr/lib/shiny-server/lib/main.js"]
-#CMD ["/bin/bash"]
-CMD ["/usr/bin/shiny-server"]
+# Command to run the Shiny app
+CMD ["R", "-e", "shiny::runApp('/app', host='0.0.0.0', port=3838)"]
