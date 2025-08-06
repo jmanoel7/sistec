@@ -1,15 +1,15 @@
 #' @importFrom shiny tags br
 comparison_ui <- function(id, version) {
   shiny::sidebarLayout(shiny::sidebarPanel(
-      tags$head(tags$style(aria_head_tags())),
-      input_rfept(id),
-      input_sistec(id),
-      input_years(id),
-      br(),
-      input_compare_button(id),
-      input_download_button(id)
-    ),
-    comparison_main_panel(id, version)
+    tags$head(tags$style(aria_head_tags())),
+    input_rfept(id),
+    input_sistec(id),
+    input_years(id),
+    br(),
+    input_compare_button(id),
+    input_download_button(id)
+  ),
+  comparison_main_panel(id, version)
   )
 }
 

@@ -18,6 +18,8 @@
 ^\.circleci$
 ^\.circleci/config\.yml$
 ^deploy\.txt$
+^Dockerfile$
+^\.vscode$
 ^\.github$
 ^appveyor\.yml$
 ^test\.R$
