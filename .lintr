@@ -1,0 +1,4 @@
+linters <- lintr::with_defaults(
+  line_length_linter = lintr::line_length_linter(120),
+  indentation_linter = lintr::indentation_linter(2)
+)
