@@ -180,7 +180,7 @@ write_cpf_registration <- function(x, path) {
         x$CURSO[e], "/",
         x$CICLO[e]
       )
-      
+
       # print("EU AQUI!!!")
       # print(path_to_save)
       # print(Encoding(path_to_save))

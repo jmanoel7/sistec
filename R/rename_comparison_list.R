@@ -1,4 +1,4 @@
-rename_comparison_list <- function(x){
+rename_comparison_list <- function(x) {
 
   x$sistec_complete <- NULL
   x$sistec_without_cpf <- rename_sistec_data_frame(x$sistec_without_cpf)
@@ -18,13 +18,13 @@ rename_comparison_list <- function(x){
   x$situation_updated <- rename_comparison_data_frame(x$situation_updated)
   x$situation_to_update <- rename_comparison_data_frame(x$situation_to_update)
   x$linked_courses <- rename_linked_course_data_frame(x$linked_courses)
-  
+
   x
 }
 
 #' @importFrom dplyr %>% sym
-rename_sistec_data_frame <- function(x){
-  x %>% 
+rename_sistec_data_frame <- function(x) {
+  x %>%
     dplyr::select(NOME = !!sym("S_NO_ALUNO"),
                   CPF = !!sym("S_NU_CPF"),
                   CICLO = !!sym("S_CO_CICLO_MATRICULA"),
@@ -35,8 +35,8 @@ rename_sistec_data_frame <- function(x){
 }
 
 #' @importFrom dplyr %>% sym
-rename_rfept_data_frame <- function(x){
-  x %>% 
+rename_rfept_data_frame <- function(x) {
+  x %>%
     dplyr::select(NOME = !!sym("R_NO_ALUNO"),
                   CPF = !!sym("R_NU_CPF"),
                   MATRICULA = !!sym("R_CO_MATRICULA"),
@@ -47,8 +47,8 @@ rename_rfept_data_frame <- function(x){
 }
 
 #' @importFrom dplyr %>% sym
-rename_rfept_complete_data_frame <- function(x){
-  x %>% 
+rename_rfept_complete_data_frame <- function(x) {
+  x %>%
     dplyr::select(NOME = !!sym("R_NO_ALUNO"),
                   CPF = !!sym("R_NU_CPF"),
                   MATRICULA = !!sym("R_CO_MATRICULA"),
@@ -60,13 +60,13 @@ rename_rfept_complete_data_frame <- function(x){
 
 #' @importFrom dplyr %>% sym
 #' @importFrom rlang :=
-rename_comparison_data_frame <- function(x){
-  
+rename_comparison_data_frame <- function(x) {
+
   rfept_table <- rfept_table(x)
   rfept_matricula <- rfept_rename_column(rfept_table, "MATRICULA")
   rfept_status <- rfept_rename_column(rfept_table, "STATUS")
-  
-  x %>% 
+
+  x %>%
     dplyr::select(NOME = !!sym("S_NO_ALUNO"),
                   CPF = !!sym("S_NU_CPF"),
                   !!rfept_matricula := !!sym("R_CO_MATRICULA"),
@@ -74,18 +74,18 @@ rename_comparison_data_frame <- function(x){
                   STATUS_SISTEC = !!sym("S_NO_STATUS_MATRICULA"),
                   CAMPUS = !!sym("R_NO_CAMPUS"),
                   CURSO = !!sym("R_NO_CURSO"), # to use rfept is better to update
-                  CICLO = !!sym("S_CO_CICLO_MATRICULA")) 
+                  CICLO = !!sym("S_CO_CICLO_MATRICULA"))
 }
 
 #' @importFrom dplyr %>% sym
 #' @importFrom rlang :=
-rename_wrong_beginning_data_frame <- function(x){
+rename_wrong_beginning_data_frame <- function(x) {
 
   rfept_table <- rfept_table(x)
   rfept_matricula <- rfept_rename_column(rfept_table, "MATRICULA")
   rfept_beginning <- rfept_rename_column(rfept_table, "INICIO")
-  
-  x %>% 
+
+  x %>%
     dplyr::select(NOME = !!sym("R_NO_ALUNO"),
                   CPF = !!sym("R_NU_CPF"),
                   !!rfept_matricula := !!sym("R_CO_MATRICULA"),
@@ -99,12 +99,12 @@ rename_wrong_beginning_data_frame <- function(x){
 
 #' @importFrom dplyr %>% sym
 #' @importFrom rlang :=
-rename_wrong_cyclo_data_frame <- function(x){
+rename_wrong_cyclo_data_frame <- function(x) {
 
   rfept_table <- rfept_table(x)
   rfept_matricula <- rfept_rename_column(rfept_table, "MATRICULA")
 
-  x %>% 
+  x %>%
     dplyr::select(NOME = !!sym("R_NO_ALUNO"),
                   CPF = !!sym("R_NU_CPF"),
                   !!rfept_matricula := !!sym("R_CO_MATRICULA"),
@@ -115,24 +115,24 @@ rename_wrong_cyclo_data_frame <- function(x){
 }
 
 #' @importFrom dplyr %>% sym
-rename_linked_course_data_frame <- function(x){
-  
+rename_linked_course_data_frame <- function(x) {
+
   rfept_table <- rfept_table(x)
   rfept_course <- rfept_rename_column(rfept_table, "CURSO")
-  
-  linked_courses <- x %>% 
+
+  linked_courses <- x %>%
     dplyr::select(INICIO = !!sym("R_DT_INICIO_CURSO"),
                   CICLO = !!sym("S_CO_CICLO_MATRICULA"),
                   CURSO_SISTEC = !!sym("S_NO_CURSO_LINKED"),
                   !!rfept_course := !!sym("R_NO_CURSO"),
-                  CAMPUS = !!sym("R_NO_CAMPUS")) 
+                  CAMPUS = !!sym("R_NO_CAMPUS"))
 }
 
-rfept_rename_column <- function(x, column){
-  paste0(column, "_", stringr::str_to_upper(x)) 
+rfept_rename_column <- function(x, column) {
+  paste0(column, "_", stringr::str_to_upper(x))
 }
 
-rfept_table <- function(x){
+rfept_table <- function(x) {
   pos <- stringr::str_which(class(x), "_table")
   table <- sub("_table", "", class(x)[pos])
   if(table == "generic_rfept") {

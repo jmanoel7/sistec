@@ -39,12 +39,12 @@ test_that("read_sigaa works", {
 
 test_that("correct_course_name works", {
   skip_on_cran()
-  
+
   wrong_course_name <- c(
-    "", "aaa\\aaa", 'aaa"aaa', "aaa_aaa - aaa", "aaa/aaa", "aaa:aaa", "aaa?aaa", 
+    "", "aaa\\aaa", 'aaa"aaa', "aaa_aaa - aaa", "aaa/aaa", "aaa:aaa", "aaa?aaa",
     "aaa.aaa", " aaa_aaa "
-  ) 
-  
+  )
+
   expect_equal(
     sistec:::correct_course_name(wrong_course_name),
     c("SEM CURSO", rep("aaa_aaa", 8))

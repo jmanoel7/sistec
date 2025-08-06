@@ -53,7 +53,7 @@ read_sistec <- function(path = "", start = NULL) {
     "NO_ALUNO", "NU_CPF", "CO_CICLO_MATRICULA", "NO_STATUS_MATRICULA",
     "NO_CICLO_MATRICULA", "DT_DATA_INICIO"
   )
-  
+
   vars_web <- c(
     "NO_ALUNO", "NU_CPF", "CO_CICLO_MATRICULA", "NO_STATUS_MATRICULA",
     "NO_CICLO_MATRICULA", "DT_DATA_INICIO", "CO_UNIDADE_ENSINO"
@@ -70,7 +70,7 @@ read_sistec <- function(path = "", start = NULL) {
   num_vars_web_without_unidade_ensino <- sum(
     vars_sistec %in% vars_web_without_unidade_ensino
   )
-  
+
   co_unidade_ensino_exist <- any(grepl("CO_UNIDADE_ENSINO$", vars_sistec))
 
   if (num_vars_setec > 0) {
@@ -81,8 +81,8 @@ read_sistec <- function(path = "", start = NULL) {
     } else {
       sistec <- read_sistec_setec(path)
     }
-  } else if(co_unidade_ensino_exist){
-    if (num_vars_web > 0) { 
+  } else if(co_unidade_ensino_exist) {
+    if (num_vars_web > 0) {
       if (num_vars_web < 7) {
         stop(paste(
           "Not found:", paste(vars_web[!vars_web %in% vars_sistec], collapse = ", ")
@@ -146,7 +146,7 @@ read_sistec_web_without_unidade_ensino <- function(path, encoding, sep) {
   temp <- paste0(path, "/", temp)
 
   classes <- "character"
-  
+
   sistec <- lapply(temp, utils::read.csv,
     sep = sep, stringsAsFactors = FALSE, colClasses = classes, encoding = encoding
   ) %>%
@@ -160,7 +160,7 @@ read_sistec_web_without_unidade_ensino <- function(path, encoding, sep) {
       S_DT_INICIO_CURSO = sistec_convert_beginning_date(!!sym("DT_DATA_INICIO")),
       S_NO_CAMPUS = "SEM_CODIGO"
     )
-  
+
   class(sistec) <- c("sistec_data_frame", class(sistec))
   sistec
 }

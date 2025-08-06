@@ -38,7 +38,7 @@ test_that("write_output() works", {
   aria_file_all_tables <- lapply(1:6, function(e) {
     openxlsx::read.xlsx(aria_files_path[8], sheet = e)
   })
-  
+
   # check names -------------------------------------------------------------------
   expect_equal(
     unlist(lapply(aria_files_by_course, names)),

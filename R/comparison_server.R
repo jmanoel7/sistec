@@ -1,6 +1,6 @@
 comparison_server <- function(id, version = "test", logs = TRUE) {
   shiny::moduleServer(id, function(input, output, session) {
-    
+
     session$onSessionEnded(function() {
       if (version == "desktop") {
         shiny::stopApp()
@@ -38,7 +38,7 @@ comparison_server <- function(id, version = "test", logs = TRUE) {
         }
       }
     )
-    
+
     output$download_offline <- shiny::renderText({
       input$download_offline
       aria_desktop_download_files(shiny::isolate(comparison_values))
@@ -78,7 +78,7 @@ comparison_server <- function(id, version = "test", logs = TRUE) {
 execute_comparison <- function(compare_button,
                                sistec_path,
                                rfept_path,
-                               year) { 
+                               year) {
   if (is.null(compare_button)) {
     comparison <- FALSE
   } else if (compare_button == 0) {

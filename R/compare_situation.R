@@ -1,15 +1,15 @@
 #' @importFrom stringr str_detect
-compare_situation <- function(x){
-  
+compare_situation <- function(x) {
+
   sistec <- x$sistec_rfept_linked$S_NO_STATUS_MATRICULA
   rfept <- x$sistec_rfept_linked$R_NO_STATUS_MATRICULA
   status_rfept <- status_rfept(x$rfept_complete)
-  
-  # existe_rfept <- !is.na(rfept)
-  status_concluido <- str_detect(sistec, "CONCLU\u00cdDA|CONCLU.DA") & # CONCLUÍDA
-    str_detect(rfept, status_rfept$concluido) 
+
+  # CRIA UM DATAFRAME NAO NULO: existe_rfept <- !is.na(rfept)
+  status_concluido <- str_detect(sistec, "CONCLU\u00cdDA|CONCLU.DA") &
+    str_detect(rfept, status_rfept$concluido)
   status_integralizada <- str_detect(sistec, "INTEGRALIZADA") &
-    str_detect(rfept, status_rfept$integralizada) 
+    str_detect(rfept, status_rfept$integralizada)
   status_abandono <- str_detect(sistec, "ABANDONO") &
     str_detect(rfept, status_rfept$abandono)
   status_desligado <- str_detect(sistec, "DESLIGADO") &
@@ -18,29 +18,30 @@ compare_situation <- function(x){
     str_detect(rfept, status_rfept$em_curso)
   status_transferido <- str_detect(sistec, "TRANSF_EXT") &
     str_detect(rfept, status_rfept$transferido)
-  
+
   if (is.null(status_rfept$reprovada)) {
     status_reprovada <- rep(FALSE, length(status_concluido))
   } else {
     status_reprovada <- str_detect(sistec, "REPROVADA") &
       str_detect(rfept, status_rfept$reprovada)
   }
-  
-  status <- status_abandono | status_concluido | status_integralizada | status_desligado |
-    status_em_curso | status_transferido | status_reprovada
-  
+
+  status <- status_abandono | status_concluido | status_integralizada |
+    status_desligado | status_em_curso | status_transferido | status_reprovada
+
   status[is.na(status)] <- FALSE
   x$sistec_rfept_linked$S_NO_STATUS_IGUAL <- status
-  class(x$sistec_rfept_linked) <- c("comparison_data_frame", class(x$rfept_complete)[-1])
+  class(x$sistec_rfept_linked) <-
+    c("comparison_data_frame", class(x$rfept_complete)[-1])
 
   x
 }
 
-status_rfept <- function(x){
+status_rfept <- function(x) {
   UseMethod("status_rfept")
 }
 
-status_rfept.qacademico_table <- function(x){
+status_rfept.qacademico_table <- function(x) {
   list(concluido = "Conclu\u00eddo|Formado", # Concluído
        integralizada = "Concludente|ENADE|V\u00ednculo", # Vínculo
        abandono = "Abandono",
@@ -50,9 +51,9 @@ status_rfept.qacademico_table <- function(x){
 }
 
 
-status_rfept.sigaa_table <- function(x){
-  list(concluido = "FORMADO|CONCLU\u00cdDO|CONCLU\u00cdDA", 
-       integralizada = "CANCELADO", 
+status_rfept.sigaa_table <- function(x) {
+  list(concluido = "FORMADO|CONCLU\u00cdDO|CONCLU\u00cdDA",
+       integralizada = "CANCELADO",
        abandono = "CANCELADO",
        desligado = "CANCELADO",
        em_curso = "CURSANDO|CONCLUINTE|TRANCADO|GRADUANDO|ATIVO|DEFENDIDO|FORMANDO",
@@ -60,9 +61,9 @@ status_rfept.sigaa_table <- function(x){
        reprovada = "CANCELADO")
 }
 
-status_rfept.generic_rfept_table <- function(x){
-  list(concluido = "CONCLU\u00cdDA", 
-       integralizada = "INTEGRALIZADA", 
+status_rfept.generic_rfept_table <- function(x) {
+  list(concluido = "CONCLU\u00cdDA",
+       integralizada = "INTEGRALIZADA",
        abandono = "ABANDONO",
        desligado = "DESLIGADO",
        em_curso = "EM_CURSO",
@@ -70,9 +71,9 @@ status_rfept.generic_rfept_table <- function(x){
        reprovada = "REPROVADA")
 }
 
-status_rfept.conecta_table <- function(x){
-  list(concluido = "Conclu\u00eddo|Formado", 
-       integralizada = "Integralizou", 
+status_rfept.conecta_table <- function(x) {
+  list(concluido = "Conclu\u00eddo|Formado",
+       integralizada = "Integralizou",
        abandono = "Evas\u00e3o",
        desligado = "Desligado|desligamento|Interna|Matriz",
        em_curso = "Matriculado|Trancado|PMA",
@@ -80,9 +81,9 @@ status_rfept.conecta_table <- function(x){
        reprovada = "Reprovada")
 }
 
-status_rfept.suap_table <- function(x){
-  list(concluido = "Conclu\u00eddo", 
-       integralizada = "Institucional", 
+status_rfept.suap_table <- function(x) {
+  list(concluido = "Conclu\u00eddo",
+       integralizada = "Institucional",
        abandono = "Evas\u00e3o",
        desligado = "Cancelamento",
        em_curso = "Matriculado|N\u00e3o conclu\u00eddo|Trancado",

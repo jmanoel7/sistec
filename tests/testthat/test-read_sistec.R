@@ -13,11 +13,11 @@ test_that("read_sistec works", {
 
 test_that("encoding and sep work", {
   skip_on_cran()
-  
+
   latin1_characters <- "\xc9|\xc7|\xd5|\xca|\xda|\xc2|\xc1|\xcd" # bug in \xc3
   utf_8_characters <- "\u00c9|\u00c7|\u00d5|\u00ca|\u00da|\u00c2|\u00c1|\u00cd"
   windows <- grepl("windows", tolower(Sys.getenv("SystemRoot")))
-  
+
   # latin1 and ,
   sistec <- read_sistec(system.file("extdata/test_datasets/sistec_encoding/latin1",
     package = "sistec"

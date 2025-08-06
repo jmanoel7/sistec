@@ -29,15 +29,15 @@ test_that("comparison_output_screen works ", {
   expect_equal(
     "Selecione os arquivos do sistema acad\u00eamico.",
     output_screen
-  )  
-  
+  )
+
   # both input paths are available and compare button was not clicked yet
   output_screen <- comparison_output_screen(NULL, sistec_path, rfept_path)
   expect_equal(
     "Aperte o bot\u00e3o \"Comparar\" para executar as compara\u00e7\u00f5es.",
     output_screen
-  )  
-  
+  )
+
   # both input paths are available and compare button was cliked
   output_screen <- comparison_output_screen(comparison, sistec_path, rfept_path)
 

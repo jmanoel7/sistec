@@ -1,8 +1,8 @@
 aria_head_tags <- function() {
   shiny::HTML(
-    ".shiny-input-container {margin-bottom: 0px} 
-  .progress.active.shiny-file-input-progress { margin-bottom: 0px } 
-  #year {margin-botton: 20px} 
+    ".shiny-input-container {margin-bottom: 0px}
+  .progress.active.shiny-file-input-progress { margin-bottom: 0px }
+  #year {margin-botton: 20px}
   .checkbox { margin-top: 0px}"
   )
 }

@@ -71,7 +71,7 @@ read_conecta_web <- function(path) {
 }
 
 ## This will be deprecated
-# conecta_convert_course_name <- function(course){
+# conecta_convert_course_name <- function(course) {
 #   stringr::str_trim(course)
 # }
 

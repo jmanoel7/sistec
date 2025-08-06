@@ -1,4 +1,4 @@
-aria_logs <- function(session_id, rfept, sistec, comparison, temp_dir, download_count){
+aria_logs <- function(session_id, rfept, sistec, comparison, temp_dir, download_count) {
   cat(file = stderr(), "====================================================================\n")
   print_logs(session_id, "rfept path = ", rfept)
   print_logs(session_id, "sistec path = ", sistec)
@@ -8,7 +8,7 @@ aria_logs <- function(session_id, rfept, sistec, comparison, temp_dir, download_
   print_logs(session_id, "aria folder exists = ", dir.exists(paste0(temp_dir, "/ARIA")))
 }
 
-print_logs <- function(id, text, x){
+print_logs <- function(id, text, x) {
   cat(file = stderr(), id , ": ", text, x, "\n")
 }
 
