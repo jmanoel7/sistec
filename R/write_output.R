@@ -213,7 +213,7 @@ write_tables <- function(x, path, rfept_table) {
     }
   })
 
-  if (rfept_table == 'Qacademico') {
+  if (rfept_table == "Qacademico") {
     rfept_table <- "Qacad"
   }
 
